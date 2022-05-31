@@ -30,3 +30,9 @@
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+<!--
+ - coordinatorlayout : view간의 상호 작용을 위한 레이아웃
+ - layout_behavior : coordinatorlayout의 핵심 , 행동을 구현할 수 있다. 여기선 appbar를 스코롤 시 숨긴다.
+
+-->
