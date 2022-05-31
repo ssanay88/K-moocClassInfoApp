@@ -13,7 +13,7 @@
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:title="K-MOOK"/>
+            app:title="K-MOOK" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -24,15 +24,27 @@
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/lecture_rv_"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            tools:itemCount="3"
+            tools:listitem="@layout/lecture_list_item" />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:id="@+id/progressBar"
+        android:indeterminateTint="@color/progressBar_tint_500"
+        android:layout_height="wrap_content"/>
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-<!--
- - coordinatorlayout : view간의 상호 작용을 위한 레이아웃
- - layout_behavior : coordinatorlayout의 핵심 , 행동을 구현할 수 있다. 여기선 appbar를 스코롤 시 숨긴다.
+    <!--
+     - coordinatorlayout : view간의 상호 작용을 위한 레이아웃
+     - layout_behavior : coordinatorlayout의 핵심 , 행동을 구현할 수 있다. 여기선 appbar를 스코롤 시 숨긴다.
 
--->
+    -->
