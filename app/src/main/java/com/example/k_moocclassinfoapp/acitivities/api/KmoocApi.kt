@@ -6,8 +6,9 @@ import retrofit2.http.GET
 
 interface KmoocApi {
 
-    @GET()
-    fun getLecture() : Call<LectureList>
+    @GET("http://apis.data.go.kr/B552881/kmooc")
+    fun getLecture(
 
+    ) : Call<LectureList>
 
 }
