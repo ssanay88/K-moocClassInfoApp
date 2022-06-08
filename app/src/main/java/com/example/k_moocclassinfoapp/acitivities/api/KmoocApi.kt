@@ -1,14 +1,23 @@
 package com.example.k_moocclassinfoapp.acitivities.api
 
+import com.example.k_moocclassinfoapp.acitivities.model.Lecture
 import com.example.k_moocclassinfoapp.acitivities.model.LectureList
 import retrofit2.Call
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 interface KmoocApi {
 
-    @GET("http://apis.data.go.kr/B552881/kmooc")
-    fun getLecture(
-
+    @GET("/courseList")
+    fun getLectureList(
+        @Query("ServiceKey") serviceKey: String,
+        @Query("Page") page: Int,
     ) : Call<LectureList>
+
+    @GET("/courseDetail")
+    fun getLectureDetail(
+        @Query("ServiceKey") serviceKey: String,
+        @Query("CourseId") courseId: String,
+    ) : Call<Lecture>
 
 }

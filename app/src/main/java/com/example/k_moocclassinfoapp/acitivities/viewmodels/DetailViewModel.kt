@@ -1,18 +1,27 @@
 package com.example.k_moocclassinfoapp.acitivities.viewmodels
 
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.*
 import com.example.k_moocclassinfoapp.acitivities.model.Lecture
+import com.example.k_moocclassinfoapp.acitivities.repositories.Repository
+import kotlinx.coroutines.launch
 
-class DetailViewModel() : ViewModel()  {
+class DetailViewModel(private val repository: Repository) : ViewModel()  {
 
     // LiveData로 선언
     var progressVisible = MutableLiveData<Boolean>()
-    val lecture = MutableLiveData<Lecture>()
+    private val _lecture = MutableLiveData<Lecture>()
+
+    val lecture : LiveData<Lecture>
+        get() = _lecture
 
     fun detail(courseId: String) {
         progressVisible.postValue(true)    // 프로그레스바 출력
+        viewModelScope.launch {
+            _lecture.postValue(repository.getLectureList())
+            progressVisible.postValue(false)
+        }
+
+
     }
 
 
