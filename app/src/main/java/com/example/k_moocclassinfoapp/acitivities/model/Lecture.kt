@@ -1,15 +1,17 @@
 package com.example.k_moocclassinfoapp.acitivities.model
 
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 import java.util.*
 
 data class Lecture(
-    val id: String,
-    val number: String,
-    val name: String,
-    val classfyName: String,
-    val middleClassfyName: String,
-    val courseImage: String,
+    @SerializedName("id") val id: String,
+    @SerializedName("Number") val number: String,
+    @SerializedName("name") val name: String,
+    @SerializedName("classfy_name") val classfyName: String,
+    @SerializedName("middle_classfy_name") val middleClassfyName: String,
+    @SerializedName("") val courseImage: String,
+    val courseImageLarge: String,
     val shortDescription: String,
     val orgName: String,
     val start: Date,

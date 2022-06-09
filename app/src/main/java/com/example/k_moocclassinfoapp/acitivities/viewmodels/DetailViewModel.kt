@@ -2,6 +2,7 @@ package com.example.k_moocclassinfoapp.acitivities.viewmodels
 
 import androidx.lifecycle.*
 import com.example.k_moocclassinfoapp.acitivities.model.Lecture
+import com.example.k_moocclassinfoapp.acitivities.model.LectureList
 import com.example.k_moocclassinfoapp.acitivities.repositories.Repository
 import kotlinx.coroutines.launch
 
@@ -17,9 +18,12 @@ class DetailViewModel(private val repository: Repository) : ViewModel()  {
     fun detail(courseId: String) {
         progressVisible.postValue(true)    // 프로그레스바 출력
         viewModelScope.launch {
-            _lecture.postValue(repository.getLectureList())
+            _lecture.postValue(repository.getLectureDetail())
             progressVisible.postValue(false)
         }
+
+
+    fun
 
 
     }
