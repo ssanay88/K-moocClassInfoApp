@@ -1,27 +1,50 @@
 package com.example.k_moocclassinfoapp.acitivities.model
 
-import com.google.gson.annotations.SerializedName
-import java.io.Serializable
-import java.util.*
-
 data class Lecture(
-    @SerializedName("id") val id: String,
-    @SerializedName("Number") val number: String,
-    @SerializedName("name") val name: String,
-    @SerializedName("classfy_name") val classfyName: String,
-    @SerializedName("middle_classfy_name") val middleClassfyName: String,
-    @SerializedName("") val courseImage: String,
-    val courseImageLarge: String,
-    val shortDescription: String,
-    val orgName: String,
-    val start: Date,
-    val end: Date,
-    val teachers: String?,
-    val overview: String?,
-) : Serializable {
-    companion object {
-        val EMPTY = Lecture(
-            "", "", "", "", "", "", "", "", Date(), Date(), null, null
-        )
-    }
-}
+    val ai_sec_yn: String,
+    val audit_yn: String,
+    val basic_science_sec_yn: String,
+    val blocks_url: String,
+    val classfy: String,
+    val classfy_name: String,
+    val classfy_plus: String,
+    val course_id: String,
+    val course_period: String,
+    val created: String,
+    val effort: String,
+    val effort_time: String,
+    val end: String,
+    val enrollment_end: String,
+    val enrollment_start: String,
+    val fourth_industry_yn: String,
+    val hidden: Boolean,
+    val home_course_step: String,
+    val home_course_yn: String,
+    val id: String,
+    val invitation_only: Boolean,
+    val job_edu_yn: String,
+    val language_name: String,
+    val learning_time: String,
+    val level: String,
+    val linguistics: String,
+    val media: Media,
+    val middle_classfy: String,
+    val middle_classfy_name: String,
+    val mobile_available: Boolean,
+    val modified: String,
+    val name: String,
+    val number: String,
+    val org: String,
+    val org_name: String,
+    val pacing: String,
+    val passing_grade: String,
+    val preview_video: String,
+    val ribbon_yn: String,
+    val short_description: String,
+    val start: String,
+    val start_display: String,
+    val start_type: String,
+    val teachers: String,
+    val video_time: String,
+    val week: String
+)

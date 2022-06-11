@@ -1,8 +1,6 @@
 package com.example.k_moocclassinfoapp.acitivities.viewmodels
 
 import androidx.lifecycle.*
-import com.example.k_moocclassinfoapp.acitivities.model.Lecture
-import com.example.k_moocclassinfoapp.acitivities.model.LectureList
 import com.example.k_moocclassinfoapp.acitivities.repositories.Repository
 import kotlinx.coroutines.launch
 

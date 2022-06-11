@@ -1,4 +1,4 @@
-package com.example.k_moocclassinfoapp.acitivities.list
+package com.example.k_moocclassinfoapp.acitivities.activities.list
 
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +10,15 @@ import java.util.*
 
 class LectureAdapter : ListAdapter<Lecture, LectureAdapter.LectureViewHolder>(diffUtill) {
 
+    private val lectures = mutableListOf<Lecture>()
 
+    // 목록 업데이트
+    fun updataLectures(lectures: List<Lecture>) {
+        this.lectures.clear()
+        this.lectures.addAll(lectures)
+        notifyDataSetChanged()
+
+    }
 
     inner class LectureViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
 
