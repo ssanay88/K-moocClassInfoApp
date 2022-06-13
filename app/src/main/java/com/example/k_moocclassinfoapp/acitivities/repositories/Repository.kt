@@ -1,5 +1,6 @@
 package com.example.k_moocclassinfoapp.acitivities.repositories
 
+import android.net.UrlQuerySanitizer
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -15,11 +16,11 @@ import retrofit2.Response
 // 데이터에 접근하기 위한 Repository, 여기를 통해서 어떤 방식의 데이터든 접근
 class Repository {
 
-    fun getLectureList() : LiveData<LectureList> {
+    fun getLectureList(key : String, page : Int) : LiveData<LectureList> {
 
         val lectureList = MutableLiveData<LectureList>()
 
-        RetrofitInstance.kmoocApi.getLectureList(BuildConfig.DATA_API_KEY,1)
+        RetrofitInstance.kmoocApi.getLectureList(key, page)
             .enqueue(object : Callback<LectureList>{
                 override fun onResponse(call: Call<LectureList>, response: Response<LectureList>) {
 
@@ -41,11 +42,11 @@ class Repository {
         return lectureList
     }
 
-    fun getLectureDetail() : LiveData<Lecture> {
+    fun getLectureDetail(key: String, courseId: String) : LiveData<Lecture> {
 
         val lecture = MutableLiveData<Lecture>()
 
-        RetrofitInstance.kmoocApi.getLectureDetail(BuildConfig.DATA_API_KEY,"course-v1:FUNMOOC+test1+test1")
+        RetrofitInstance.kmoocApi.getLectureDetail(key,courseId)
             .enqueue(object : Callback<Lecture>{
                 override fun onResponse(call: Call<Lecture>, response: Response<Lecture>) {
 
@@ -70,7 +71,9 @@ class Repository {
 
     fun next(currentPage : LectureList, completed: (Lecture) -> Unit) {
         val nextPage = currentPage.pagination.next    // 다음 페이지
-
+        val urlSanitizer = UrlQuerySanitizer(nextPage)
+        val pageNum = urlSanitizer.getValue("page")
+        getLectureList(BuildConfig.DATA_API_KEY, pageNum.toInt())
 
     }
 
