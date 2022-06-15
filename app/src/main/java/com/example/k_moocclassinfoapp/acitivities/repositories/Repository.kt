@@ -69,11 +69,11 @@ class Repository {
         return lecture
     }
 
-    fun next(currentPage : LectureList, completed: (Lecture) -> Unit) {
+    fun next(currentPage : LectureList, completed: (LiveData<LectureList>) -> Unit) {
         val nextPage = currentPage.pagination.next    // 다음 페이지
         val urlSanitizer = UrlQuerySanitizer(nextPage)
         val pageNum = urlSanitizer.getValue("page")
-        getLectureList(BuildConfig.DATA_API_KEY, pageNum.toInt())
+        completed(getLectureList(BuildConfig.DATA_API_KEY, pageNum.toInt()))
 
     }
 
