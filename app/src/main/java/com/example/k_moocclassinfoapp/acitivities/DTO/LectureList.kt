@@ -5,5 +5,5 @@ import com.example.k_moocclassinfoapp.acitivities.model.Lecture
 
 data class LectureList(
     val pagination: Pagination,
-    val Lectures: List<Lecture>
+    var Lectures: List<Lecture>
 )

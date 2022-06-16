@@ -20,7 +20,10 @@ class ListViewModel(private val repository: Repository) : ViewModel() {
     fun list() {
         progressVisible.postValue(true)    // 새로 고침 progressBar 등장
         viewModelScope.launch {
-            _lectureList.postValue()
+            repository.list() {
+                _lectureList.postValue(it)
+                progressVisible.postValue(false)
+            }
         }
 
     }
@@ -30,7 +33,13 @@ class ListViewModel(private val repository: Repository) : ViewModel() {
         val currentLectureList = this.lectureList.value ?: return
         // 다음 강의들을 불러오는 메서드
         repository.next(currentLectureList) { lectureList ->
-
+            val currentLectures = currentLectureList.Lectures
+            val mergedLectures = currentLectures.toMutableList().apply {
+                addAll(lectureList.Lectures)
+            }
+            lectureList.Lectures = mergedLectures
+            _lectureList.postValue(lectureList)
+            progressVisible.postValue(false)
 
         }
     }
