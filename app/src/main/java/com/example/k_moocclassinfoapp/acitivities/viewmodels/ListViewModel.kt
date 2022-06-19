@@ -1,9 +1,6 @@
 package com.example.k_moocclassinfoapp.acitivities.viewmodels
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.example.k_moocclassinfoapp.acitivities.DTO.LectureList
 import com.example.k_moocclassinfoapp.acitivities.repositories.Repository
 import kotlinx.coroutines.launch
@@ -45,6 +42,19 @@ class ListViewModel(private val repository: Repository) : ViewModel() {
     }
 
 
+}
 
+// ViewModelProvider.Factory를 확장
+// 오버라이드하여 create 함수를 받는다.
+class ListViewModelFactory(private val repository: Repository) : ViewModelProvider.Factory {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        // modelClass에 ViewModel이 상속이 되었나?
+        if (modelClass.isAssignableFrom(ListViewModel::class.java)) {
+            // 맞다면 ViewModel의 인자값을 넘겨준다.
+            return ListViewModel(repository) as T
+        }
+        // 상속이 되어 있지 않다면 IllegalAccessError를 통해 상속이 되지 않았다는 에러 표시
+        throw IllegalAccessError("Unkown ViewModel Class")
+    }
 
 }

@@ -1,6 +1,7 @@
 package com.example.k_moocclassinfoapp.acitivities.viewmodels
 
 import androidx.lifecycle.*
+import com.example.k_moocclassinfoapp.acitivities.model.Lecture
 import com.example.k_moocclassinfoapp.acitivities.repositories.Repository
 import kotlinx.coroutines.launch
 
@@ -29,8 +30,13 @@ class DetailViewModel(private val repository: Repository) : ViewModel()  {
 
 }
 
-class DetailViewModelFactory(private val repository:) : ViewModelProvider.Factory {
+class DetailViewModelFactory(private val repository:Repository) : ViewModelProvider.Factory {
 
-    override fun <T : ViewModel>
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(DetailViewModel::class.java)) {
+            return DetailViewModel(repository) as T
+        }
+        throw IllegalAccessError("Unkown Viewmodel Class")
+    }
 
 }
