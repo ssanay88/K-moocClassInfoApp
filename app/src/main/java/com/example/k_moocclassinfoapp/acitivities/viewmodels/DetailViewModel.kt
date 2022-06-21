@@ -14,18 +14,18 @@ class DetailViewModel(private val repository: Repository) : ViewModel()  {
     val lecture : LiveData<Lecture>
         get() = _lecture
 
-    fun detail(courseId: String) {
-        progressVisible.postValue(true)    // 프로그레스바 출력
-        viewModelScope.launch {
-            _lecture.postValue(repository.getLectureDetail())
-            progressVisible.postValue(false)
-        }
-
-
-    fun
-
-
-    }
+//    fun detail(courseId: String) {
+//        progressVisible.postValue(true)    // 프로그레스바 출력
+//        viewModelScope.launch {
+//            _lecture.postValue(repository.getLectureDetail())
+//            progressVisible.postValue(false)
+//        }
+//
+//
+//    fun
+//
+//
+//    }
 
 
 }

@@ -36,6 +36,7 @@ class Repository {
 
                 override fun onFailure(call: Call<LectureList>, t: Throwable) {
                     Log.d(singletoneWord.logTag,"API 통신 실패 : $t")
+                    Log.d(singletoneWord.logTag, "call 객체 : $call")
                 }
             })
 

@@ -3,9 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/82103/AndroidStudioProjects/KmoocClassInfoApp/app/src/main/res/layout/activity_detail.xml" value="0.30978260869565216" />
+        <entry key="..\:/Users/82103/AndroidStudioProjects/KmoocClassInfoApp/app/src/main/res/layout/activity_list.xml" value="0.30978260869565216" />
         <entry key="..\:/Users/82103/AndroidStudioProjects/KmoocClassInfoApp/app/src/main/res/layout/activity_main.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/82103/AndroidStudioProjects/KmoocClassInfoApp/app/src/main/res/layout/lecture_list_item.xml" value="0.36614583333333334" />
-        <entry key="..\:/Users/ppllo/StudioProjects/K-moocClassInfoApp/app/src/main/res/layout/activity_detail.xml" value="0.24547101449275363" />
       </map>
     </option>
   </component>

@@ -8,16 +8,16 @@ import retrofit2.http.Query
 
 interface KmoocApi {
 
-    @GET("/courseList")
+    @GET("/B552881/kmooc/courseList")
     fun getLectureList(
-        @Query("ServiceKey") serviceKey: String,
-        @Query("Page") page: Int,
+        @Query("serviceKey") serviceKey: String,
+        @Query("page") page: Int
     ) : Call<LectureList>
 
-    @GET("/courseDetail")
+    @GET("/B552881/kmooc/courseDetail")
     fun getLectureDetail(
-        @Query("ServiceKey") serviceKey: String,
-        @Query("CourseId") courseId: String,
+        @Query("serviceKey") serviceKey: String,
+        @Query("courseId") courseId: String
     ) : Call<Lecture>
 
 }

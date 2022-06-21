@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.k_moocclassinfoapp.acitivities.LectureApplication
 import com.example.k_moocclassinfoapp.acitivities.repositories.Repository
 import com.example.k_moocclassinfoapp.acitivities.viewmodels.ListViewModel
+import com.example.k_moocclassinfoapp.acitivities.viewmodels.ListViewModelFactory
 import com.example.k_moocclassinfoapp.databinding.ActivityListBinding
 
 class ListActivity : AppCompatActivity() {
@@ -22,7 +23,8 @@ class ListActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val repository = (application as LectureApplication).repository
-        viewModel = ViewModelProvider(this).get(ListViewModel::class.java)
+        viewModel = ViewModelProvider(this, ListViewModelFactory(repository))
+            .get(ListViewModel::class.java)
 
         val lectureAdapter = LectureAdapter()
 

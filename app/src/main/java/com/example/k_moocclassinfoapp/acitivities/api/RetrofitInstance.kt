@@ -1,5 +1,6 @@
 package com.example.k_moocclassinfoapp.acitivities.api
 
+import com.google.gson.GsonBuilder
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -7,9 +8,12 @@ import retrofit2.converter.gson.GsonConverterFactory
 object RetrofitInstance {
 
     private val retrofit by lazy {
+
+        var gson = GsonBuilder().setLenient().create()
+
         Retrofit.Builder()
-            .baseUrl("http://apis.data.go.kr/B552881/kmooc")
-            .addConverterFactory(GsonConverterFactory.create())
+            .baseUrl("http://apis.data.go.kr")
+            .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
     }
 
