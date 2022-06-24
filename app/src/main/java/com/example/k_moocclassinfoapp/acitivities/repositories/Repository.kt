@@ -80,6 +80,7 @@ class Repository {
 
     fun list(completed: (LectureList) -> Unit) {
         val Lectures = getLectureList(BuildConfig.DATA_API_KEY, 1).value
+        Log.d(singletoneWord.logTag,"$Lectures")
         if (Lectures != null) completed(Lectures)
     }
 

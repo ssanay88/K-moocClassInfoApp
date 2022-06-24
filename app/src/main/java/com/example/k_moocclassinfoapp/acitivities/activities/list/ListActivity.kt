@@ -29,6 +29,7 @@ class ListActivity : AppCompatActivity() {
         val lectureAdapter = LectureAdapter()
 
         binding.lectureRv.adapter = lectureAdapter
+        binding.lectureRv.layoutManager = LinearLayoutManager(this)
 
         viewModel.lectureList.observe(this) {
             lectureAdapter.updataLectures(it.Lectures)
